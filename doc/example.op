@@ -1,0 +1,41 @@
+Select:
+    -> writeexcel:{
+        fileName: "test.xlsx",
+        load: false, # create new. Use load: true when modifying existing Excel.
+        columnWidth: 14,
+        landscape,
+        #
+        # Current version allows adding one image and positioning it
+        #
+        #imageName: "logo.png",
+        #imageFormat: "png",
+        #imageXPos: 6,
+        #imageYPos: 1,
+        #imageScale: 0.2,
+        debug: false,
+        #
+        # Each command works on an individual cell.
+        # If cell-stylings are given (bold, fill, borderBottom/Top/Left/Right), then the style must be given a name.
+        # The named style may be later referenced.
+        #
+        commands: [
+                {row: 0, cell: 0, value: "Greeting", bold, fill: $FILL_COLOR, borderBottom, borderTop, borderLeft, style: "greeting-left"},
+                {row: 0, cell: 1, value: "Hello!", wrap: false, bold, fill: $FILL_COLOR, borderBottom, borderTop, style: "greeting-middle"},
+                {row: 0, cell: 2, value: empty, bold, fill: $FILL_COLOR, borderBottom, borderTop, borderRight, style: "greeting-right"},
+                {row: 1, cell: 0, value: "Greeting ref", style: "greeting-left"},
+                {row: 1, cell: 1, value: 1234, style: "greeting-middle"},
+                {row: 1, cell: 2, value: empty, style: "greeting-right"},
+                {row: 2, cell: 0, value: "Greeting Date", style: "greeting-left"},
+                {row: 2, cell: 1, value: => date:now() => date:toString("dd.MM.yyyy"), style: "greeting-middle"},
+                {row: 2, cell: 2, value: empty, style: "greeting-right"},
+                
+                {row: 4, cell: 0, value: "value 1", style: "greeting-left"},
+                {row: 4, cell: 1, value: "value 2", style: "greeting-middle"},
+                {row: 4, cell: 2, value: "value 3", style: "greeting-middle"},
+                {row: 4, cell: 3, value: "value 4", style: "greeting-middle"},
+                {row: 4, cell: 4, value: "value 5", style: "greeting-middle"},
+                {row: 4, cell: 5, value: "value 6", wrap, style: "greeting-middle"},
+                {row: 4, cell: 6, value: "value 7", wrap, style: "greeting-middle"},
+                {row: 4, cell: 7, value: "value 8.", style: "greeting-right"}
+        ]
+    }

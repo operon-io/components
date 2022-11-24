@@ -1,0 +1,18 @@
+[
+    #
+    # writeexcel-component allows creating or modifying Excel-files.
+    #
+    {
+        "type": "integration",
+        "name": "writeexcel",
+        "version": "0.0.1",
+        "resolveUri": "file:./components/integration/readexcel/uber-writeexcel-integration-component-0.1.0.jar",
+        "sourceUri": "",
+        "description": "",
+        "operonVersion": "0.9.8",
+        "hash": "",
+        "installedTs": 0,
+        "configuration": {}
+    }
+  ]
+  
